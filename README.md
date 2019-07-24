@@ -84,7 +84,6 @@ In order to deploy from a pipeline, you need to do a couple things inside your J
 | Deploy Latest Build | MY_TOKEN |D
 
 5. In the **Endpoint** tab, click **Create New Endpoint**
-![create-endpoint](./media/create-endpoint.png)
 6. Fill in the endpoint with the following values, then click **Save Changes**
 
 | Name | Base URL | Trust self-signed certficiates | Authentication Type | Username | Password |
