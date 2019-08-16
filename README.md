@@ -14,7 +14,7 @@ This document details how to install and use this integration.
 ---------
 # Pre-Requisites
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)! 
-* An xMatters Communication Plan with a created form
+* An xMatters Communication Plan with a created flow
 * Jenkins instance with a pipeline you wish to build from xMatters
 
 # Files
@@ -37,20 +37,9 @@ In order to deploy from a pipeline, you need to do a couple things inside your J
 ![make-token](./media/make-token.png)
 4. Keep this token somewhere, you will be pasting it into xMatters later
 
-## Adding Jenkins to xMatters
-1. Inside your xMatters instance, navigate to the Developer tab
-2. Locate the Communication Plan you would like to add a Jenkins step to, then click **Edit** > **Flows**
-![edit-flow](./media/edit-flow.png)
-3. For the Form you would like to add Zoom options to (or if you already have a flow, open that flow), click on **Create Flow**
-4. Click and drag **Responses** into the flow, then click **Save**
-![drag-responses](./media/drag-responses.png)
-5. Create a new Response by clicking **Add Response** or by double clicking the `Responses` step
-6. Click Create Response to add a new response
-![create-response](./media/create-response.png)
-7. Fill in a new Response that describe a step to build your Jenkins pipeline, then click **Save**
-![fill-response](./media/fill-response.png)
-8. On the righthand side, click on the **Custom** tab, then click **+ Create a custom action**
-9. In the settings tab, fill out the info as follows, then click **Save**:
+## Build Pipeline Step
+1. Inside your flow, navigate to the **Custom** tab, then click **+ Create a custom action**
+2. In the settings tab, fill out the info as follows, then click **Save**:
 
 | Option                     | Value                                   |
 | ---------------------- | ------------------------------- |
@@ -60,18 +49,18 @@ In order to deploy from a pipeline, you need to do a couple things inside your J
 | Endpoint Type        | Basic                                    |
 | Endpoint Label       | Jenkins                                |
 
-10. In the inputs tab, add these six inputs, then click **Save**:
+3. In the inputs tab, add these two inputs, then click **Save**:
 
 | Name | Required Field | Minimum Length | Maximum Length | Help Text | Default Value | Multiline |
 | ------- | ---------------- | -------------------- | -------------------- | ----------- | --------------- | --------- |
 | Job Name | **✓** | 0 | 2000 | Jenkins Pipeline Name |  |  |
 | Token | **✓** | 0 | 2000 | Jenkins Pipeline authentication token |  |  |
 
-11. In the script tab, paste in [this](./script.js) script, then click **Save**
-12. Now you've made your custom action, which you can reuse as much as you want, changing the `Job Name` and its corresponding `Token`  to change which Jenkins job is deployed.
+4. In the script tab, paste in [this](./script.js) script, then click **Save**
+5. Now you've made your custom action, which you can reuse as much as you want, changing the `Job Name` and its corresponding `Token`  to change which Jenkins job is deployed.
 
 
-## Adding the step to a flow
+## Usage
 1. In your flow, click and drag the custom **Build Jenkins Pipeline** action into the flow
 ![drag-action](./media/drag-action.png)
 2. Connect your Jenkins response option to your custom **Build Jenkins Pipeline** action in the flow
@@ -81,14 +70,14 @@ In order to deploy from a pipeline, you need to do a couple things inside your J
 
 | Job Name | Token | 
 | --- | --- |
-| Deploy Latest Build | MY_TOKEN |D
+| Deploy Latest Build | MY_TOKEN |
 
 5. In the **Endpoint** tab, click **Create New Endpoint**
 6. Fill in the endpoint with the following values, then click **Save Changes**
 
 | Name | Base URL | Trust self-signed certficiates | Authentication Type | Username | Password |
 | --- | --- | --- | --- | --- | --- |
-| Jenkins | MY_JENKINS_URL | | Basic | MY_JENKINS_USERNAME | MY_JENKINS PASSWORD |
+| Jenkins | MY_JENKINS_URL | | Basic | MY_JENKINS_USERNAME | MY_JENKINS_PASSWORD |
 
 7. Close out of the endpoint editor, then click OK to save the custom step, then click **Save** to save the flow
 8. Enjoy automagic :)
