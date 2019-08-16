@@ -1,5 +1,5 @@
 # Jenkins Outbound (from xMatters) integration
-This is part of the xMatters Labs awesome listing. For others, see [here](https://github.com/xmatters/xMatters-Labs).
+This is part of the xMatters Labs Steps awesome listing. For others, see [here](https://github.com/xmatters/xMatters-Labs-Flow-Steps).
 
 With this library, notification recipients can quickly build a Jenkins Pipeline.
 
@@ -24,10 +24,7 @@ This document details how to install and use this integration.
 Jenkins is the leading open source automation server that makes it simple to build, deploy, and automate any project. This integration with xMatters makes it easy to build a Jenkins pipeline directly from an email, furthering Jenkins' automatic capacity.
 
 # Installation
-## Prerequisites:
-An existing Communication Plan in xMatters for which you would like to add a Jenkins `Create a Meeting` response option
-
-## Getting your Jenkins token
+## Jenkins setup
 In order to deploy from a pipeline, you need to do a couple things inside your Jenkins instance for each pipeline you wish to automate with xMatters.
 
 1. Navigate to your Jenkins instance
@@ -38,8 +35,8 @@ In order to deploy from a pipeline, you need to do a couple things inside your J
 4. Keep this token somewhere, you will be pasting it into xMatters later
 
 ## Build Pipeline Step
-1. Inside your flow, navigate to the **Custom** tab, then click **+ Create a custom action**
-2. In the settings tab, fill out the info as follows, then click **Save**:
+
+### Settings
 
 | Option                     | Value                                   |
 | ---------------------- | ------------------------------- |
@@ -49,16 +46,19 @@ In order to deploy from a pipeline, you need to do a couple things inside your J
 | Endpoint Type        | Basic                                    |
 | Endpoint Label       | Jenkins                                |
 
-3. In the inputs tab, add these two inputs, then click **Save**:
+### Inputs
 
 | Name | Required Field | Minimum Length | Maximum Length | Help Text | Default Value | Multiline |
 | ------- | ---------------- | -------------------- | -------------------- | ----------- | --------------- | --------- |
 | Job Name | **✓** | 0 | 2000 | Jenkins Pipeline Name |  |  |
 | Token | **✓** | 0 | 2000 | Jenkins Pipeline authentication token |  |  |
 
-4. In the script tab, paste in [this](./script.js) script, then click **Save**
-5. Now you've made your custom action, which you can reuse as much as you want, changing the `Job Name` and its corresponding `Token`  to change which Jenkins job is deployed.
 
+### Outputs
+There are no outputs in this step
+
+### Script
+In the script tab, paste in [this](./script.js) script, then click **Save**
 
 ## Usage
 1. In your flow, click and drag the custom **Build Jenkins Pipeline** action into the flow
@@ -83,10 +83,10 @@ In order to deploy from a pipeline, you need to do a couple things inside your J
 8. Enjoy automagic :)
 
 # Testing
-To test the integration, fire the xMatters outbound notifier and select the Jenkins response option. If it works, the pipeline will run, which you can see either in Jenkins or in whatever the Jenkins pipeline is supposed to do.
+To test the step, fire the xMatters outbound notifier and select the Jenkins response option. If it works, the pipeline will run, which you can see either in Jenkins or in whatever the Jenkins pipeline is supposed to do.
 
 # Troubleshooting
-If the integration is not working properly, there are a few places where it could be going wrong.
+If the step is not working properly, there are a few places where it could be going wrong.
 1. Check that the `Job Name` input in xMatters matches a valid Jenkins pipeline, for example, in the screenshot below, the job name would be `deploy-devopsdays`
 ![configure-pipeline](./media/configure-pipeline.png)
 2. Double check that you have the `Trigger builds remotely (e.g., from scripts)` checked, and that your token matches the one you put in the `Token` input in xMatters.
