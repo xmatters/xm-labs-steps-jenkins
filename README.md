@@ -5,6 +5,8 @@ With this library, notification recipients can quickly build a Jenkins Pipeline.
 
 This document details how to install and use this integration. 
 
+**NOTE**: This has been deprecated, in favor of the engineering built steps available at an xMatters instance near you. Docs [here](https://help.xmatters.com/ondemand/xmodwelcome/flowdesigner/jenkins-steps.htm?cshid=JenkinsSteps)
+
 ---------
 
 <kbd>
