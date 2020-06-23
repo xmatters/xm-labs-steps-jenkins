@@ -10,13 +10,15 @@ This document details how to install and use this integration.
 ---------
 
 <kbd>
-<img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+<a href="https://support.xmatters.com/hc/en-us/community/topics">
+   <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+</a>
 </kbd>
 
 ---------
 # Pre-Requisites
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)! 
-* An xMatters Communication Plan with a created flow
+* An xMatters workflow with a created flow
 * Jenkins instance with a pipeline you wish to build from xMatters
 
 # Files
